@@ -29,7 +29,7 @@ export default function Sidebar({ setNewNote }) {
     
   return (
     <StyledDrawer variant="permanent" anchor="left">
-      <List style={{ position: 'relative' }}>
+      <List style={{ position: 'relative', height: '100%' }}>
         <ListItem>
           <Addnewnote setNewnote={setNewNote} />
         </ListItem>

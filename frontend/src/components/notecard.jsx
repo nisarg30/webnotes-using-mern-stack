@@ -56,10 +56,10 @@ const NoteCard = ({ note, setNewnote, setdeleteNote }) => {
         }}
       >
         <div>
-            <Typography variant="subtitle1" gutterBottom>
+            <Typography variant="h4" gutterBottom>
               {title}
             </Typography>
-            <Typography color="textSecondary" gutterBottom>
+            <Typography color="textSecondary" variant='h5' gutterBottom>
               {catagory}
             </Typography>
         </div>
@@ -78,7 +78,7 @@ const NoteCard = ({ note, setNewnote, setdeleteNote }) => {
             marginBottom: '4px',
           }}
         >
-          <Typography color="textSecondary" style={{ marginRight: 'auto' }}>
+          <Typography color="textSecondary" style={{ marginRight: 'auto' }} variant='h5'>
             {datetime}
           </Typography>
           <OpenInFullIcon

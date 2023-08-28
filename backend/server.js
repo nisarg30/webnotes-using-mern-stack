@@ -8,7 +8,7 @@ require('dotenv').config();
 
 app.use(cors());
 app.use(cookieParser());
-console.log(process.env.mongodb_url);
+
 mongoose.connect(process.env.mongodb_url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

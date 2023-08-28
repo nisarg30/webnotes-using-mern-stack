@@ -48,25 +48,35 @@ function Notespage() {
 
   return (
     <div className="notespage">
-      <Grid container spacing={2}>
-      <Grid item xs={12} ml={12}>
-          <Header />
-        </Grid>
-        <Grid item xs={1} md={1}>
+      <Grid container>
+        <Grid item xs={12} ml={12}>
           <Sidebar setNewNote={setNewNote} />
         </Grid>
-        <Grid item xs={3} md={9} mt={2}>
-          <Grid container spacing={1} >
+        <Grid item xs={12} ml={12}>
+          <Header />
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={2} ml={2}>
+        
+        <Grid item xs={12} md={9} mt={4} ml={12}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "16px", // Adjust as needed
+              minWidth: "300px", // Set a minimum width
+            }}
+          >
             {notes.map((note) => (
-              <Grid item xs={12} sm={6} md={4} key={note.id}>
-                <Notecard
-                  note={note}
-                  setNewnote={setNewNote}
-                  setdeleteNote={setDeleteNote}
-                />
-              </Grid>
+              <Notecard
+                key={note.id}
+                note={note}
+                setNewnote={setNewNote}
+                setdeleteNote={setDeleteNote}
+              />
             ))}
-          </Grid>
+          </div>
           <Typography>{error}</Typography>
         </Grid>
       </Grid>
