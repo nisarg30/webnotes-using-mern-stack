@@ -29,13 +29,13 @@ export default function Sidebar({ setNewNote }) {
     
   return (
     <StyledDrawer variant="permanent" anchor="left">
-      <List style={{ position: 'relative', height: '100%' }}>
+      <List style={{ position: 'relative', height: '100%', backgroundColor : '#000000' }}>
         <ListItem>
           <Addnewnote setNewnote={setNewNote} />
         </ListItem>
         <ListItem>
           <ListItemIcon style={{ marginLeft: "5px" }}>
-            <IconButton color="inherit" onClick={handleLogout} size="large">
+            <IconButton onClick={handleLogout} size="large" style={{color : '#ffffff'}}>
               <ExitToApp fontSize="inherit" /> {/* Logout icon */}
             </IconButton>
           </ListItemIcon>

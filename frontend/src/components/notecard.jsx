@@ -9,7 +9,35 @@ import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 import EditNotePopup from './editnotepop'; 
 import DeleteIcon from '@mui/icons-material/Delete';
 import NoteModal from './notezoom';
-import DeleteNote from './delete'
+import DeleteNote from './delete';
+
+const darkGradients = [
+  'radial-gradient(circle, #0A0E14, #1A1D26)',
+  'radial-gradient(circle, #2E0B0B, #1A1A26)',
+  'radial-gradient(circle, #1C1C1C, #303030)',
+  'radial-gradient(circle, #0A1822, #162138)',
+  'radial-gradient(circle, #1E1E1E, #2E2E2E)',
+  'radial-gradient(circle, #141822, #1E2C3A)',
+  'radial-gradient(circle, #1B0E1B, #0C1E2C)',
+  'radial-gradient(circle, #242B34, #162028)',
+  'radial-gradient(circle, #130F19, #1F0D30)',
+  'radial-gradient(circle, #161616, #2C2C2C)',
+  'radial-gradient(circle, #0F1119, #1A1C26)',
+  'radial-gradient(circle, #1E232E, #11161F)',
+  'radial-gradient(circle, #1A1C1F, #0F1828)',
+  'radial-gradient(circle, #171B1E, #272D30)',
+  'radial-gradient(circle, #181B20, #272A2F)',
+  'radial-gradient(circle, #14121E, #3D142D)',
+  'radial-gradient(circle, #1B1125, #371A32)',
+  'radial-gradient(circle, #1E1E1E, #2E2E2E)',
+  'radial-gradient(circle, #0F0F0F, #252525)',
+  'radial-gradient(circle, #0D1B1E, #173023)',
+];
+
+const getRandomGradient = () => {
+  const randomIndex = Math.floor(Math.random() * darkGradients.length);
+  return darkGradients[randomIndex];
+};
 
 const NoteCard = ({ note, setNewnote, setdeleteNote }) => {
   const theme = useTheme();
@@ -17,56 +45,72 @@ const NoteCard = ({ note, setNewnote, setdeleteNote }) => {
 
   const { title, catagory, content, datetime } = note;
 
-  const [isEditPopupOpen, setIsEditPopupOpen] = useState(false); // State for managing pop-up visibility
+  const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
   const [iszoomIN, setZoomin] = useState(false);
   const [deleteNote, setDelete] = useState(false);
+  const [backgroundGradient, setBackgroundGradient] = useState(getRandomGradient());
 
   const handleEdit = () => {
-    setIsEditPopupOpen(true); // Open the pop-up when the Edit button is clicked
+    setIsEditPopupOpen(true);
   };
 
   const handleCloseEditPopup = () => {
-    setIsEditPopupOpen(false); // Close the pop-up when needed
+    setIsEditPopupOpen(false);
   };
 
   const handleZoom = () => {
-    setZoomin(true); 
+    setZoomin(true);
   };
 
   const handlecloseZoom = () => {
-    setZoomin(false); 
+    setZoomin(false);
   };
 
   const handleclosedelete = () => {
-    setDelete(false); 
+    setDelete(false);
   };
 
   const handledeleterefresh = () => {
     setdeleteNote(true);
-  }
+  };
 
   return (
-    <Paper elevation={3} sx={{ padding: '16px', marginBottom: '16px', width: '300px', height: '320px' }}>
+    <Paper elevation={10} sx={{ marginBottom: '16px', width: '320px', height: '350px', padding : '2px' }}>
       <div
         style={{
           display: 'flex',
-          flexDirection: 'column', 
-          justifyContent: 'space-between', 
-          height: '100%', 
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          height: '100%',
+          background: backgroundGradient,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          borderRadius : '10px'
         }}
       >
         <div>
-            <Typography variant="h4" gutterBottom>
-              {title}
-            </Typography>
-            <Typography color="textSecondary" variant='h5' gutterBottom>
-              {catagory}
-            </Typography>
+          <Typography variant="h4" ml={1} gutterBottom style={{ color : '#ffffff', padding: '5px', borderRadius: '5px' }} mr={1} mt={1}>
+            {title}
+          </Typography>
+          <Typography color="textSecondary" ml={1} variant="h5" gutterBottom style={{ color : '#ffffff', padding: '5px', borderRadius: '5px' }} mr={1} mt={1}>
+            {catagory}
+          </Typography>
         </div>
         <Typography
           variant="body1"
           paragraph
-          style={{ maxHeight: '160px', overflowY: 'auto', marginTop: '8px', marginBottom: '8px' }}
+          ml={1}
+          mr={1}
+          mt={1}
+          style={{
+            maxHeight: '160px',
+            overflowY: 'auto',
+            marginTop: '8px',
+            marginBottom: '8px',
+            color : '#ffffff',
+            padding: '5px',
+            borderRadius: '5px'
+          }}
         >
           {content}
         </Typography>
@@ -78,7 +122,7 @@ const NoteCard = ({ note, setNewnote, setdeleteNote }) => {
             marginBottom: '4px',
           }}
         >
-          <Typography color="textSecondary" style={{ marginRight: 'auto' }} variant='h5'>
+          <Typography color="textSecondary" style={{ marginRight: 'auto', color : '#ffffff', padding: '5px', borderRadius: '5px' }} ml={1} variant="h5">
             {datetime}
           </Typography>
           <OpenInFullIcon
@@ -88,42 +132,43 @@ const NoteCard = ({ note, setNewnote, setdeleteNote }) => {
               handleZoom();
             }}
             sx={{
-              width: isSmallScreen ? '24px' : '32px', 
+              width: isSmallScreen ? '24px' : '32px',
               height: isSmallScreen ? '24px' : '32px',
               transition: 'width 0.3s, height 0.3s',
-              marginRight: '8px', 
+              marginRight: '8px',
             }}
-          > 
-          </OpenInFullIcon>
+            style={{ color: 'orange' }}
+          />
           <DeleteIcon
-            color="grey"
+            color="white"
             aria-label="delete"
             onClick={() => {
               setDelete(true);
             }}
             sx={{
-              width: isSmallScreen ? '24px' : '32px', 
+              width: isSmallScreen ? '24px' : '32px',
               height: isSmallScreen ? '24px' : '32px',
               transition: 'width 0.3s, height 0.3s',
-              marginRight: '8px', 
+              marginRight: '8px',
             }}
-          >
-          </DeleteIcon>
+            style={{ color: 'white' }}
+          />
           <Fab
             color="primary"
             aria-label="edit"
             onClick={handleEdit}
             sx={{
-              width: isSmallScreen ? '24px' : '32px', 
+              width: isSmallScreen ? '24px' : '32px',
               height: isSmallScreen ? '24px' : '32px',
               transition: 'width 0.3s, height 0.3s',
+              marginRight: '10px',
             }}
           >
-            <EditIcon fontSize="small" /> 
+            <EditIcon fontSize="small" />
           </Fab>
         </div>
       </div>
-      
+
       {iszoomIN && (
         <NoteModal
           note={note}

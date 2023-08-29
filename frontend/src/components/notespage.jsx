@@ -47,19 +47,24 @@ function Notespage() {
   };
 
   return (
-    <div className="notespage">
-      <Grid container>
+    <div className="notespage" style={{
+      overflow: "hidden",
+      background: "linear-gradient(to bottom, #333333, #111111)",
+      height: "100vh",
+    }} >
+      <Grid container >
         <Grid item xs={12} ml={12}>
           <Sidebar setNewNote={setNewNote} />
         </Grid>
-        <Grid item xs={12} ml={12}>
+      </Grid>
+
+      <Grid container spacing={2} ml={10}>
+      <Grid item xs={12} >
           <Header />
         </Grid>
       </Grid>
-
-      <Grid container spacing={2} ml={2}>
-        
-        <Grid item xs={12} md={9} mt={4} ml={12}>
+      <Grid container spacing={2} ml={3} mt={1}>
+        <Grid item xs={6} md={12} ml={12} >
           <div
             style={{
               display: "flex",
