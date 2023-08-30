@@ -15,7 +15,7 @@ const DeleteNotepop = ({ note, onClose, setdeletenote }) => {
     const handleDelete= async (event) => {
     event.preventDefault();
         try {
-            const url = 'http://localhost:8080/deletenote';
+            const url = 'https://webnotes-backend-server.onrender.com/deletenote';
             const data = {
                 noteId : note.id,
             }

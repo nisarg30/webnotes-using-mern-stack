@@ -20,7 +20,7 @@ function Notespage() {
 
   const fetchData = async () => {
     try {
-      const url = "http://localhost:8080/getnotes";
+      const url = "https://webnotes-backend-server.onrender.com/getnotes";
       const token = localStorage.getItem("token");
       if (!token) {
         navigate("/");

@@ -25,7 +25,7 @@ const LoginForm = ({ onSwitchMode }) => {
             return;
         }
         try {
-            const url = 'http://localhost:8080';
+            const url = 'https://webnotes-backend-server.onrender.com';
             const data = {
                 username : username,
                 password : password

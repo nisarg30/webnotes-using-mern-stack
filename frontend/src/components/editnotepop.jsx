@@ -35,7 +35,7 @@ const EditNotePopup = ({ note, onClose, setNoteedited }) => {
         }
     
         try {
-            const url = 'http://localhost:8080/modifynote';
+            const url = 'https://webnotes-backend-server.onrender.com/modifynote';
             const data = {
                 noteId : note.id,
                 title : editedNote.title,

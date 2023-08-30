@@ -47,7 +47,7 @@ const RegisterForm = ({ onSwitchMode }) => {
     }
 
     try {
-        const url = 'http://localhost:8080/reg';
+        const url = 'https://webnotes-backend-server.onrender.com/reg';
         const data = {
             username : username,
             email : email,

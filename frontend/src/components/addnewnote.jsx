@@ -36,7 +36,7 @@ function Addnewnote({ setNewnote }) {
         }
         
         try {
-            const url = 'http://localhost:8080/addnewnote';
+            const url = 'https://webnotes-backend-server.onrender.com/addnewnote';
             const data = {
                 title : title,
                 catagory : catagory,
