@@ -48,7 +48,7 @@ function Notespage() {
 
   return (
     <div className="notespage" style={{
-      overflow: "hidden",
+      overflowX: "hidden",
       background: "linear-gradient(to bottom, #333333, #111111)",
       height: "100vh",
     }} >
